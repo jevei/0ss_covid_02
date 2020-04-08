@@ -14,7 +14,7 @@ namespace Inventaire
         public CustomerView(CustomerViewModel vm)
         {
             InitializeComponent();
-
+            //alo
             _vm = vm;
             DataContext = _vm;
         }
