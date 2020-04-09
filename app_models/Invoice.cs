@@ -37,6 +37,15 @@ namespace BillingManagement.Models
         public double FedTax { get; set; }
         public double ProvTax { get; set; }
         public double Total { get; set; }
+        public Invoice()
+        {
+            CreationDateTime = DateTime.Now;
+        }
+        public Invoice(Customer customer)
+        {
+            Customer = customer;
+            CreationDateTime = DateTime.Now;
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged([CallerMemberName]string propertyName = null)
         {
