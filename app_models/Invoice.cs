@@ -11,7 +11,7 @@ namespace BillingManagement.Models
     {
         private Customer customer;
         private double subtotal;
-        //public static int InvoiceId;
+        public static int InvoiceId;
         public DateTime CreationDateTime { get; private set; }
         public Customer Customer
         {

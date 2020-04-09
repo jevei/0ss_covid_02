@@ -1,8 +1,6 @@
 ﻿using app_models;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
 using System.Text;
 
 namespace BillingManagement.Business
@@ -10,11 +8,9 @@ namespace BillingManagement.Business
     class ContactInfosDataService:IDataService<ContactInfo>
     {
         readonly List<ContactInfo> contactInfos;
-        private IEnumerable<Customer> customers;
-
         public ContactInfosDataService()
         {
-            _ = new List<ContactInfo>
+            contactInfos = new List<ContactInfo>
             {
                 new ContactInfo() {ContactType="Cell", Contact="759-388-6783"},
                 new ContactInfo() {ContactType="Work", Contact="668-418-2708"},
@@ -517,23 +513,6 @@ namespace BillingManagement.Business
                 new ContactInfo() {ContactType="Email", Contact="malesuada@a.co.uk"},
                 new ContactInfo() {ContactType="Email", Contact="ligula.elit.pretium@necmaurisblandit.net"},
             };
-            List<ContactInfo> contactInfos = new ContactInfosDataService().GetAll().ToList();
-
-            Random rnd = new Random();
-
-            foreach (Customer c in customers)
-            {
-                c.ContactInfos = new ObservableCollection<ContactInfo>();
-
-                var nbContacts = rnd.Next(1, 4);
-
-                for (int i = 0; i < nbContacts; i++)
-                {
-                    var index = rnd.Next(contactInfos.Count);
-                    var ci = contactInfos[index];
-                    c.ContactInfos.Add(ci);
-                }
-            }
         }
 
         public IEnumerable<ContactInfo> GetAll()
