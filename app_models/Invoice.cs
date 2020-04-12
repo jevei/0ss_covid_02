@@ -14,10 +14,6 @@ namespace BillingManagement.Models
         private double subtotal;
         static int nextId;
         public int InvoiceId { get; private set; }
-        Invoice()
-        {
-            InvoiceId = Interlocked.Increment(ref nextId);
-        }
         public DateTime CreationDateTime { get; }
         public Customer Customer
         {
@@ -45,12 +41,12 @@ namespace BillingManagement.Models
         public double Total => subtotal + ProvTax + FedTax;
         public Invoice()
         {
-            InvoiceId = Interlocked.Increment(ref InvoiceId);
+            InvoiceId = Interlocked.Increment(ref nextId);
             CreationDateTime = DateTime.Now;
         }
         public Invoice(Customer customer)
         {
-            InvoiceId = Interlocked.Increment(ref InvoiceId);
+            InvoiceId = Interlocked.Increment(ref nextId);
             Customer = customer;
             CreationDateTime = DateTime.Now;
         }
