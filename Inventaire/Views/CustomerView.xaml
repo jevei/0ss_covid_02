@@ -116,7 +116,8 @@
                 <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                             Orientation="Horizontal" Margin="3">
                     <TextBlock Text="Contact :" Width="75"/>
-                    <TextBlock MinWidth="125" Text="{Binding  SelectedCustomer.ContactInfo}"/>
+                    <DataGrid MinWidth="125" ItemsSource="{Binding SelectedCustomer.ContactInfos}">
+                    </DataGrid>
 
 
                 </StackPanel>
