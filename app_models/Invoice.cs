@@ -12,7 +12,12 @@ namespace BillingManagement.Models
     {
         private Customer customer;
         private double subtotal;
-        public static int InvoiceId;
+        static int nextId;
+        public int InvoiceId { get; private set; }
+        Invoice()
+        {
+            InvoiceId = Interlocked.Increment(ref nextId);
+        }
         public DateTime CreationDateTime { get; }
         public Customer Customer
         {
