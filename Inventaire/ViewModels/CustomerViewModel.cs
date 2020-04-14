@@ -2,6 +2,7 @@
 using BillingManagement.Business;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Text;
 
 namespace BillingManagement.UI.ViewModels
 {
@@ -11,6 +12,7 @@ namespace BillingManagement.UI.ViewModels
 
         private ObservableCollection<Customer> customers;
         private Customer selectedCustomer;
+        private string selectedCustomerCIs;
 
         public ObservableCollection<Customer> Customers
         {
@@ -31,7 +33,29 @@ namespace BillingManagement.UI.ViewModels
                 OnPropertyChanged();
             }
         }
+        public string SelectedCustomerCIs
+        {
+            get
+            {
+                if (selectedCustomer != null)
+                {
+                    var CI = new StringBuilder();
+                    foreach (var CIs in SelectedCustomer.ContactInfos)
+                    {
+                        CI.AppendLine(CIs.ContactType.ToString() + " : " + CIs.Contact.ToString());
+                    }
 
+                    return CI.ToString();
+                }
+                else
+                    return "";
+            }
+            set
+            {
+                selectedCustomerCIs = value;
+                OnPropertyChanged();
+            }
+        }
         public CustomerViewModel()
         {
             InitValues();

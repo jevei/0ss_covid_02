@@ -116,9 +116,15 @@
                 <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                             Orientation="Horizontal" Margin="3">
                     <TextBlock Text="Contact :" Width="75"/>
-                    <DataGrid MinWidth="125" ItemsSource="{Binding SelectedCustomer.ContactInfos}">
-                    </DataGrid>
-
+                    <ListView Grid.Row="0" ItemsSource="{Binding SelectedCustomer.ContactInfos}"
+                          SelectedItem="{Binding SelectedCustomerCIs}"
+                          x:Name="CIs">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Info}"/>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
 
                 </StackPanel>
                 <StackPanel Grid.Row="6" Grid.Column="2" Margin="6">

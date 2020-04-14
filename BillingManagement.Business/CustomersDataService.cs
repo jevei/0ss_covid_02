@@ -134,20 +134,6 @@ namespace BillingManagement.Business
                     c.ContactInfos.Add(ci);
                 }
             }
-            /*List<Invoice> invoices = new List<Invoice>();
-            foreach (Customer c in customers)
-            {
-                c.Invoices = new ObservableCollection<Invoice>();
-
-                var nbInvoices = rnd.Next(1, 4);
-
-                for (int i = 0; i < nbInvoices; i++)
-                {
-                    var index = rnd.Next(invoices.Count);
-                    var ci = invoices[index];//////problème ici
-                    c.Invoices.Add(ci);
-                }
-            }*///problème se faire dataservice(vidéo 20:45) faire Invoices dans customer   customerdataservice dans invoicedataservice doit ce fairre dans invoicedataservice pas ici
         }
         public IEnumerable<Customer> GetAll()
         {
