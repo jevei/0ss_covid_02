@@ -12,12 +12,9 @@ namespace BillingManagement.UI.ViewModels
         public InvoiceViewModel()
         {
             InvoiceDataService invoiceDS = new InvoiceDataService();
-            //Invoices = new ObservableCollection<Invoice>(invoiceDS.GetAll());
+            Invoices = new ObservableCollection<Invoice>(invoiceDS.GetAll());
         }
 
-        private void InitValues()
-        {
-            
-        }
+        public ObservableCollection<Invoice> Invoices { get; set; }
     }
 }

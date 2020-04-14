@@ -11,9 +11,10 @@ namespace BillingManagement.Business
     public class InvoiceDataService : IDataService<Invoice>
     {
         readonly List<Invoice> invoices;
-        readonly List<Customer> customers;
+        //readonly List<Customer> customers;
+        readonly CustomersDataService _customers;
 
-        public InvoiceDataService(CustomersDataService customerDS)
+        /*public InvoiceDataService(CustomersDataService customerDS)
         {
             customers = customerDS.GetAll().ToList();
 
@@ -33,12 +34,12 @@ namespace BillingManagement.Business
                     c.Invoices.Add(ci);
                 }
             }
-        }
+        }*/
         public InvoiceDataService()
         {
-            //initValues();
+            initValues();
         }
-        /*private void initValues()
+        private void initValues()
         {
             Random rnd = new Random();
 
@@ -52,9 +53,10 @@ namespace BillingManagement.Business
                     var invoice = new Invoice(customer);
                     invoice.SubTotal = rnd.NextDouble() * 100 + 50;
                     customer.Invoices.Add(invoice);
+                    invoices.Add(invoice)
                 }
             }
-        }*/
+        }
         public IEnumerable<Invoice> GetAll()
         {
             foreach (Invoice c in invoices)
