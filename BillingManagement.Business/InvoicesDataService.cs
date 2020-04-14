@@ -8,7 +8,7 @@ using System.Text;
 
 namespace BillingManagement.Business
 {
-    public class InvoiceDataService : IDataService<Invoice>
+    public class InvoicesDataService : IDataService<Invoice>
     {
         readonly List<Invoice> invoices;
         //readonly List<Customer> customers;
@@ -35,7 +35,7 @@ namespace BillingManagement.Business
                 }
             }
         }*/
-        public InvoiceDataService()
+        public InvoicesDataService()
         {
             initValues();
         }
@@ -53,7 +53,7 @@ namespace BillingManagement.Business
                     var invoice = new Invoice(customer);
                     invoice.SubTotal = rnd.NextDouble() * 100 + 50;
                     customer.Invoices.Add(invoice);
-                    invoices.Add(invoice)
+                    invoices.Add(invoice);
                 }
             }
         }
