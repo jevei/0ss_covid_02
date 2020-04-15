@@ -9,7 +9,6 @@
         mc:Ignorable="d"
         Title="Gestion de clients" Width="800" Height="500"
         MinHeight="600" MinWidth="640">
-    <!--DataContext="{Binding RelativeSource={RelativeSource self}}"-->
     <Window.Resources>
         <DataTemplate DataType="{x:Type vm:InvoiceListViewModel}">
             <views:InvoiceListView DataContext="{Binding}"/>
@@ -45,6 +44,10 @@
                     <MenuItem Header="Fonction 1"/>
                     <MenuItem Header="Fonction 2"/>
                     <MenuItem Header="Fonction 3"/>
+                </MenuItem>
+                <MenuItem Header="Enregistrement">
+                    <MenuItem Header="Clients" Command="{Binding ChangeViewCommand}" CommandParameter="customer"/>
+                    <MenuItem Header="Facture" Command="{Binding ChangeViewCommand}" CommandParameter="invoice"/>
                 </MenuItem>
             </Menu>
         </StackPanel>

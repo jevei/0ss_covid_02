@@ -1,6 +1,7 @@
 ﻿using app_models;
 using BillingManagement.UI.ViewModels;
 using System.Windows;
+using System.Windows.Data;
 
 namespace Inventaire
 {
