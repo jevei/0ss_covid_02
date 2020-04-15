@@ -12,6 +12,9 @@ namespace BillingManagement.Models
     {
         private Customer customer;
         private double subtotal;
+        private double total;
+        private double fedTax;
+        private double provTax;
         static int nextId;
         public int InvoiceId { get; private set; }
         public DateTime CreationDateTime { get; }
@@ -36,13 +39,49 @@ namespace BillingManagement.Models
                 OnPropertyChanged(nameof(Total));
             }
         }
-        public double FedTax => (SubTotal) * (5 / 100);
-        public double ProvTax => (subtotal) * (9.975 / 100);
-        public double Total => subtotal + ProvTax + FedTax;
+        //public double FedTax => (SubTotal) * (5 / 100);
+        //public double ProvTax => (subtotal) * (9.975 / 100);
+        public double Total 
+        {
+            get => subtotal + ProvTax + FedTax; 
+            set
+            {
+                total = value;
+            }
+        }
+        public double ProvTax
+        {
+            get => (subtotal) * (9.975 / 100);
+            set
+            {
+                provTax = value;
+            }
+        }
+
+        public double FedTax
+        {
+            get => (SubTotal) * (5 / 100);
+            set
+            {
+                fedTax = value;
+            }
+        }
+
         public Invoice()
         {
             InvoiceId = Interlocked.Increment(ref nextId);
             CreationDateTime = DateTime.Now;
+        }
+        public string Info => $"{CreationDateTime}, {Total}";
+        private string infoC;
+        public string InfoC
+        {
+            get => Customer.Info;
+            set
+            {
+                infoC = value;
+                OnPropertyChanged();
+            }
         }
         public Invoice(Customer customer)
         {

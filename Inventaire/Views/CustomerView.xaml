@@ -25,38 +25,38 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Margin="3">
                 <TextBlock Text="Prénom :" Width="75"/>
-                <TextBox MinWidth="125" Text="{Binding SelectedCustomer.Name}"/>
+                <TextBox MinWidth="125" Text="{Binding Customer.Name}"/>
             </StackPanel>
             <StackPanel Grid.Row="1" Grid.Column="1" 
                             Orientation="Horizontal" Margin="3">
                 <TextBlock Text="Nom :" Width="75"/>
-                <TextBox MinWidth="125" Text="{Binding SelectedCustomer.LastName}"/>
+                <TextBox MinWidth="125" Text="{Binding Customer.LastName}"/>
             </StackPanel>
             <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" 
                             Orientation="Horizontal" Margin="3" >
                 <TextBlock Text="Adresse :" Width="75"/>
-                <TextBox MinWidth="250" Text="{Binding SelectedCustomer.Address}"/>
+                <TextBox MinWidth="250" Text="{Binding Customer.Address}"/>
             </StackPanel>
             <StackPanel Grid.Row="3" Grid.Column="0"
                             Orientation="Horizontal" Margin="3" >
                 <TextBlock Text="Ville :" Width="75"/>
-                <TextBox MinWidth="175" Text="{Binding SelectedCustomer.City}"/>
+                <TextBox MinWidth="175" Text="{Binding Customer.City}"/>
             </StackPanel>
             <StackPanel Grid.Row="3" Grid.Column="1" 
                             Orientation="Horizontal" Margin="3">
                 <TextBlock Text="Province :" Width="75"/>
-                <TextBox MinWidth="50" Text="{Binding SelectedCustomer.Province}"/>
+                <TextBox MinWidth="50" Text="{Binding Customer.Province}"/>
             </StackPanel>
             <StackPanel Grid.Row="4" Grid.Column="0" 
                             Orientation="Horizontal" Margin="3">
                 <TextBlock Text="Code postal :" Width="75"/>
-                <TextBox MinWidth="125" Text="{Binding SelectedCustomer.PostalCode}"/>
+                <TextBox MinWidth="125" Text="{Binding Customer.PostalCode}"/>
             </StackPanel>
             <StackPanel Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
                             Orientation="Horizontal" Margin="3">
                 <TextBlock Text="Contact :" Width="75"/>
-                <ListView Grid.Row="0" ItemsSource="{Binding SelectedCustomer.ContactInfos}"
-                          SelectedItem="{Binding SelectedCustomerCIs}"
+                <ListView Grid.Row="0" ItemsSource="{Binding Customer.ContactInfos}"
+                          SelectedItem="{Binding CustomerCIs}"
                           x:Name="CIs">
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -66,11 +66,9 @@
                 </ListView>
 
             </StackPanel>
-            <StackPanel Grid.Row="6" Grid.Column="2" Margin="6">
-                <Button Content="Supprimer client" Click="CustomerDelete_Click"/>
-            </StackPanel>
+
             <Image Margin="6" Grid.Row="7"
-                       Source="{Binding SelectedCustomer.PicturePath}"
+                       Source="{Binding Customer.PicturePath}"
                        Stretch="Uniform"/>
         </Grid>
     </Grid>

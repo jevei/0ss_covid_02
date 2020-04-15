@@ -10,9 +10,8 @@ namespace BillingManagement.Business
 {
     public class InvoicesDataService : IDataService<Invoice>
     {
-        readonly List<Invoice> invoices;
+        private readonly List<Invoice> invoices;
         //readonly List<Customer> customers;
-        readonly CustomersDataService _customers;
 
         /*public InvoiceDataService(CustomersDataService customerDS)
         {
@@ -37,15 +36,18 @@ namespace BillingManagement.Business
         }*/
         public InvoicesDataService()
         {
-            initValues();
+            invoices = new List<Invoice>();
+            CustomersDataService customerDS = new CustomersDataService();
+            initValues(customerDS);
         }
-        private void initValues()
+        private void initValues(CustomersDataService _customers)
         {
             Random rnd = new Random();
-
+            
 
             foreach (var customer in _customers.GetAll())
             {
+                customer.Invoices = new ObservableCollection<Invoice>();
                 int nbInvoices = rnd.Next(10);
 
                 for (int i = 0; i < nbInvoices; i++)

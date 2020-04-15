@@ -7,20 +7,22 @@ namespace Inventaire
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class CustomerView : Window
+    public partial class MainView : Window
     {
         CustomerViewModel _vm;
+        InvoiceViewModel _ivm;
 
-        public CustomerView(CustomerViewModel vm)
+        public MainView(/*CustomerViewModel vm, InvoiceViewModel ivm*/)
         {
             InitializeComponent();
-            
-            _vm = vm;
+            DataContext = new MainViewModel();
+            /*_vm = vm;
             DataContext = _vm;
+            _ivm = ivm;*/
         }
 
 
-        private void CustomerNew_Click(object sender, RoutedEventArgs e)
+        /*private void CustomerNew_Click(object sender, RoutedEventArgs e)
         {
             Customer temp = new Customer() { Name = "Undefined", LastName = "Undefined" };
             _vm.Customers.Add(temp);
@@ -38,7 +40,7 @@ namespace Inventaire
 
             lvCustomers.SelectedIndex = currentIndex;
 
-        }
+        }*/
 
         private void Exit_Click(object sender, RoutedEventArgs e)
         {

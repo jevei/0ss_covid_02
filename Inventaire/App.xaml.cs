@@ -8,14 +8,14 @@ namespace Inventaire
     /// </summary>
     public partial class App : Application
     {
-        CustomerView _window;
+        MainView _window;
 
         public App()
         {
             CustomerViewModel vm = new CustomerViewModel();
-
-            _window = new CustomerView(vm);
-
+            InvoiceViewModel ivm = new InvoiceViewModel();
+            //_window = new MainView(vm, ivm);
+            _window = new MainView();
             _window.Show();
         }
     }
