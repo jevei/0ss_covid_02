@@ -60,7 +60,7 @@ namespace BillingManagement.Models
 
         public double FedTax
         {
-            get => (SubTotal) * (5 / 100);
+            get => (subtotal) * (5.00 / 100);
             set
             {
                 fedTax = value;

@@ -23,7 +23,7 @@
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" Margin="3">
             <TextBlock Text="ID :" Width="75"/>
-            <Label MinWidth="125" IsEnabled="False" Content="{Binding Invoice.InvoiceId}"/>
+            <Label MinWidth="125" Content="{Binding Invoice.InvoiceId}"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" Margin="3">
             <TextBlock Text="Client :" Width="75"/>
